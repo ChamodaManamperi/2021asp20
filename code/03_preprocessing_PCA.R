@@ -17,17 +17,15 @@ expr <- exprs(eset)
 dim(expr)
 summary(as.vector(expr))
 
-# ============================================
 # Simple filtering (remove very low expression probes)
-# ============================================
+
 # Keep probes with variance above median
 probe_var <- apply(expr, 1, var)
 expr_filtered <- expr[probe_var > median(probe_var), ]
 dim(expr_filtered)
 
-# ============================================
 # PCA
-# ============================================
+
 pca <- prcomp(t(expr_filtered), scale. = TRUE)
 
 # PCA data frame
@@ -54,3 +52,41 @@ if (!dir.exists("figures")) dir.create("figures")
 ggsave("figures/PCA_salt_stress.png", pca_plot, width = 8, height = 6, dpi = 300)
 
 cat("PCA completed and saved!\n")
+
+
+
+# Heatmap of Top 50 Variable Genes
+
+
+# Install if needed
+if (!requireNamespace("pheatmap", quietly = TRUE))
+  install.packages("pheatmap")
+
+library(pheatmap)
+
+# Variance ගණනය කරන්න filtered data එකෙන්
+probe_var_filtered <- apply(expr_filtered, 1, var)
+
+# Top 50 most variable probes
+top_var <- order(probe_var_filtered, decreasing = TRUE)[1:50]
+expr_top <- expr_filtered[top_var, ]
+
+# Annotation for columns
+annotation_col <- data.frame(
+  Genotype = pdata$Genotype,
+  Condition = pdata$Condition
+)
+rownames(annotation_col) <- colnames(expr_top)
+
+# Heatmap
+pheatmap(expr_top,
+         scale = "row",
+         annotation_col = annotation_col,
+         show_rownames = FALSE,
+         fontsize_col = 8,
+         main = "Top 50 Variable Genes - Rice Salt Stress",
+         filename = "figures/Heatmap_top50_genes.png",
+         width = 8,
+         height = 6)
+
+cat("Heatmap saved successfully!\n")
