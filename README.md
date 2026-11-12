@@ -61,8 +61,8 @@ The analysis was performed entirely in R. The following steps were carried out:
 PCA showed clear separation between Control and Salt-stressed samples, indicating that salt stress has a strong effect on the overall transcriptome.
 
 ### Differential Expression
-- Number of significant DEGs in FL478 (Salt vs Control): [මෙතනට ඔයාගේ number එක දාන්න]
-- Number of significant DEGs in IR29 (Salt vs Control): [මෙතනට ඔයාගේ number එක දාන්න]
+- Number of significant DEGs in FL478 (Salt vs Control): 0
+- Number of significant DEGs in IR29 (Salt vs Control): 2
 
 Volcano plots and the heatmap of highly variable genes further supported the presence of distinct transcriptional responses under salt stress.
 
