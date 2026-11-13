@@ -70,8 +70,7 @@ Volcano plots and the heatmap of highly variable genes further supported the pre
 
 ## 6. Discussion
 
-The results demonstrate that salt stress triggers substantial transcriptional reprogramming in both genotypes. The differences observed between FL478 and IR29 may reflect the underlying genetic basis of salt tolerance. Limitations of this study include the relatively small sample size and the use of microarray technology rather than RNA-seq. Nevertheless, the identified DEGs provide a useful starting point for further functional validation and candidate gene selection for breeding programs.
-
+The small number of significant DEGs is likely due to the limited sample size (only 11 samples) and the relatively strict thresholds used. With larger sample sizes or RNA-seq data, more differentially expressed genes would typically be detected. Despite this limitation, the analysis still demonstrates clear transcriptional differences between control and salt-stressed conditions through PCA and overall expression patterns.
 ## 7. Conclusion
 
 This project successfully identified differentially expressed genes in rice under salt stress using publicly available data. The analysis highlights the value of transcriptomic approaches in understanding abiotic stress responses and contributes to the knowledge required for developing salt-tolerant rice varieties.
